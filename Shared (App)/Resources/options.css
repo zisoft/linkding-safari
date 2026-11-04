@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f7f7f9;
+  color: #222;
+}
+
+main {
+  max-width: 620px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #d9dde4;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input[type="url"],
+input[type="password"] {
+  border: 1px solid #c9ccd3;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+button {
+  width: fit-content;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  background: #0a84ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+#status {
+  margin-top: 12px;
+  min-height: 1.2em;
+  font-size: 14px;
+}
+
+#status.error {
+  color: #b50000;
+}
+
+#status.success {
+  color: #187a2f;
+}
