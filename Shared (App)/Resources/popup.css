@@ -14,14 +14,26 @@ main {
 }
 
 h1 {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 16px;
 }
 
 .title-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+
+.title-brand {
+  display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+.title-actions {
+  display: flex;
+  gap: 6px;
 }
 
 form {
@@ -36,13 +48,25 @@ label {
   color: #333;
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
 input,
 textarea,
 button {
   font: inherit;
 }
 
-input,
+input:not([type="checkbox"]),
 textarea {
   width: 100%;
   border: 1px solid #c9ccd3;
@@ -62,16 +86,6 @@ textarea {
   margin-top: 4px;
 }
 
-.settings-link {
-  font-size: 12px;
-  color: #0a84ff;
-  text-decoration: none;
-}
-
-.settings-link:hover {
-  text-decoration: underline;
-}
-
 button {
   border: none;
   border-radius: 6px;
@@ -81,6 +95,25 @@ button {
   cursor: pointer;
 }
 
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #c9ccd3;
+  background: #fff;
+  color: #4b5563;
+}
+
+.icon-button:hover:enabled {
+  background: #f2f4f8;
+}
+
+.icon-button.danger {
+  color: #b91c1c;
+}
 
 button:disabled {
   opacity: 0.6;
@@ -101,24 +134,48 @@ button:disabled {
   color: #187a2f;
 }
 
+.duplicate-hint {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #b45309;
+}
+
+.tags-field {
+  position: relative;
+}
+
 .tag-suggestions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 2px);
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #c9ccd3;
+  border-radius: 6px;
+  background: #fff;
+  max-height: 140px;
+  overflow: auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .tag-suggestion {
-  border: 1px solid #b9c9df;
-  border-radius: 999px;
-  background: #eef5ff;
-  color: #0b4f9d;
-  font-size: 11px;
-  padding: 2px 8px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #1f2937;
+  font-size: 12px;
+  text-align: left;
+  padding: 6px 8px;
   cursor: pointer;
 }
 
+.tag-suggestion.active,
 .tag-suggestion:hover {
-  background: #deecff;
+  background: #eaf2ff;
 }
 

@@ -9,21 +9,23 @@ A Safari Web Extension to quickly save the current page to your [Linkding](https
   - URL (pre-filled)
   - description (auto-filled from page meta tags)
   - notes
+  - mark as unread
   - tags
 - Automatic description extraction from the active page (fallback order):
   - `meta[name="description"]`
   - `meta[property="og:description"]`
   - `meta[name="twitter:description"]`
-- Duplicate detection before save:
-  - `GET /api/bookmarks/check/?url=...`
-- Duplicate overwrite flow:
-  - if a duplicate is found, the primary button switches to **Overwrite bookmark**
-  - second click updates the existing bookmark entry
-- Create bookmark:
-  - `POST /api/bookmarks/`
-- Update existing bookmark:
-  - `PUT /api/bookmarks/{id}/`
-- Tag autocomplete (loaded from Linkding API)
+- Duplicate detection when popup opens
+- Existing bookmark prefill:
+  - if URL already exists, the form is prefilled from the existing bookmark
+  - a hint is shown below the URL field
+  - saving updates the existing bookmark
+  - existing bookmark can be deleted from the popup (trash button)
+- Tag autocomplete dropdown (loaded from Linkding API)
+  - keyboard navigation with ↑/↓ and Enter
+- Quick actions in popup header:
+  - open Linkding instance
+  - open extension settings
 - Options page for:
   - Linkding base URL
   - API token
