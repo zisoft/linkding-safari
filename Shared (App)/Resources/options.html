@@ -13,7 +13,7 @@
       <form id="options-form">
         <label>
           Linkding URL
-          <input id="baseUrl" type="url" placeholder="https://linkding.zisoft.de" required />
+          <input id="baseUrl" type="url" placeholder="https://linkding.example.com" required />
         </label>
 
         <label>
@@ -22,8 +22,13 @@
         </label>
 
         <label class="checkbox-row">
+          <input id="unreadDefault" type="checkbox" />
+          Pre-select unread when adding bookmark
+        </label>
+
+        <label class="checkbox-row">
           <input id="autoCloseOnSuccess" type="checkbox" />
-Automatically close popup after successful save
+          Automatically close popup after successful save
         </label>
 
         <button type="submit">Save settings</button>

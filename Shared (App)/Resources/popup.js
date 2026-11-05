@@ -565,7 +565,7 @@ function focusPrimaryInput() {
 
 async function initialize() {
   resetDuplicateState();
-  const stored = await storageGet(["baseUrl", "apiToken"]);
+  const stored = await storageGet(["baseUrl", "apiToken", "unreadDefault"]);
 
   if (!stored.baseUrl || !stored.apiToken) {
     setStatus("Please set Linkding URL and API token in Settings.", "error");
@@ -575,6 +575,7 @@ async function initialize() {
     const tab = await getActiveTab();
     titleInput.value = tab.title || "";
     urlInput.value = tab.url || "";
+	unreadInput.checked = stored.unreadDefault;
 
     const pageDescription = await getPageDescription(tab.id);
     if (pageDescription && !descriptionInput.value.trim()) {

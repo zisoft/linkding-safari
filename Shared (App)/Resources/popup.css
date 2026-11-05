@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  padding: 12px;
+  padding: 0.5em;
 }
 
 h1 {
@@ -22,28 +22,28 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 10px;
+  margin: 0 0 0.625em;
 }
 
 .title-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .title-actions {
   display: flex;
-  gap: 6px;
+  gap: 0.4em;
 }
 
 form {
   display: grid;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 label {
   display: grid;
-  gap: 4px;
+  gap: 0.25em;
   font-size: 12px;
   color: #333;
 }
@@ -52,7 +52,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .checkbox-row input[type="checkbox"] {
@@ -70,8 +70,8 @@ input:not([type="checkbox"]),
 textarea {
   width: 100%;
   border: 1px solid #c9ccd3;
-  border-radius: 6px;
-  padding: 8px;
+  border-radius: 0.375em;
+  padding: 0.5em;
   background: white;
 }
 
@@ -83,13 +83,14 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 4px;
+  margin-top: 0.25em;
 }
 
 button {
   border: none;
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: 0.375em;
+  padding: 0.2em 0.5em;
+  font-size: 14px;
   background: #0a84ff;
   color: #fff;
   cursor: pointer;
@@ -99,11 +100,9 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
   padding: 0;
-  border: 1px solid #c9ccd3;
-  background: #fff;
+  border: none;
+  background: transparent;
   color: #4b5563;
 }
 
@@ -121,7 +120,7 @@ button:disabled {
 }
 
 #status {
-  margin: 10px 2px 0;
+  margin: 0.625em 0.125em 0;
   min-height: 1.2em;
   font-size: 12px;
 }
@@ -148,15 +147,15 @@ button:disabled {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(100% + 2px);
+  top: calc(100% + 0.125em);
   z-index: 20;
   list-style: none;
   margin: 0;
-  padding: 4px;
+  padding: 0.25em;
   border: 1px solid #c9ccd3;
-  border-radius: 6px;
+  border-radius: 0.375em;
   background: #fff;
-  max-height: 140px;
+  max-height: 8.75em;
   overflow: auto;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
@@ -165,12 +164,12 @@ button:disabled {
   display: block;
   width: 100%;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25em;
   background: transparent;
   color: #1f2937;
   font-size: 12px;
   text-align: left;
-  padding: 6px 8px;
+  padding: 0.375em 0.5em;
   cursor: pointer;
 }
 

@@ -3,6 +3,7 @@ const browserApi = globalThis.browser ?? globalThis.chrome;
 const form = document.getElementById("options-form");
 const baseUrlInput = document.getElementById("baseUrl");
 const apiTokenInput = document.getElementById("apiToken");
+const unreadDefaultInput = document.getElementById("unreadDefault");
 const autoCloseInput = document.getElementById("autoCloseOnSuccess");
 const statusEl = document.getElementById("status");
 
@@ -26,9 +27,10 @@ function normalizeBaseUrl(baseUrl) {
 }
 
 async function initialize() {
-  const stored = await storageGet(["baseUrl", "apiToken", "autoCloseOnSuccess"]);
-  baseUrlInput.value = stored.baseUrl || "https://linkding.zisoft.de";
+  const stored = await storageGet(["baseUrl", "apiToken", "unreadDefault", "autoCloseOnSuccess"]);
+  baseUrlInput.value = stored.baseUrl || "";
   apiTokenInput.value = stored.apiToken || "";
+  unreadDefault.checked = Boolean(stored.unreadDefault);
   autoCloseInput.checked = Boolean(stored.autoCloseOnSuccess);
 }
 
@@ -37,6 +39,7 @@ form.addEventListener("submit", async (event) => {
 
   const baseUrl = normalizeBaseUrl(baseUrlInput.value.trim());
   const apiToken = apiTokenInput.value.trim();
+  const unreadDefault = unreadDefaultInput.checked;
   const autoCloseOnSuccess = autoCloseInput.checked;
 
   if (!baseUrl || !apiToken) {
@@ -44,7 +47,7 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  await storageSet({ baseUrl, apiToken, autoCloseOnSuccess });
+  await storageSet({ baseUrl, apiToken, unreadDefault, autoCloseOnSuccess });
   setStatus("✅ Settings saved.", "success");
 });
 

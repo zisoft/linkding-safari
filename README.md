@@ -36,17 +36,18 @@ A Safari Web Extension to quickly save the current page to your [Linkding](https
 
 ## Screenshots
 
+### Popup
 ![Popup](assets/popup.png)
-Popup
 
+### Tag Suggestions
 ![Tag suggestions](assets/tag-suggestions.png)
-Tag suggestions
 
+### Duplicate Detection
 ![Duplicate detection](assets/duplicate.png)
-Duplicate detection
 
+### Settings
 ![Settings](assets/settings.png)
-Settings
+
 
 ## Project structure
 
