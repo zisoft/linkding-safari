@@ -1,0 +1,5 @@
+build/
+.DS_Store
+Package.resolved
+Linkding Safari.xcodeproj/xcuserdata/
+Linkding Safari.xcodeproj/project.xcworkspace/xcuserdata/

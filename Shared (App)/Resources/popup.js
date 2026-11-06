@@ -461,6 +461,24 @@ function renderTagSuggestions() {
   });
 }
 
+function scrollActiveTagSuggestionIntoView() {
+  const item = tagSuggestionsEl.children[activeTagSuggestionIndex];
+  if (!item) {
+    return;
+  }
+
+  const listTop = tagSuggestionsEl.scrollTop;
+  const listBottom = listTop + tagSuggestionsEl.clientHeight;
+  const itemTop = item.offsetTop;
+  const itemBottom = itemTop + item.offsetHeight;
+
+  if (itemTop < listTop) {
+    tagSuggestionsEl.scrollTop = itemTop;
+  } else if (itemBottom > listBottom) {
+    tagSuggestionsEl.scrollTop = itemBottom - tagSuggestionsEl.clientHeight;
+  }
+}
+
 urlInput.addEventListener("input", resetDuplicateState);
 
 titleInput.addEventListener("input", () => {
@@ -491,6 +509,7 @@ tagsInput.addEventListener("keydown", (event) => {
     event.preventDefault();
     activeTagSuggestionIndex = (activeTagSuggestionIndex + 1) % visibleTagSuggestions.length;
     renderTagSuggestions();
+    scrollActiveTagSuggestionIntoView();
     return;
   }
 
@@ -499,6 +518,7 @@ tagsInput.addEventListener("keydown", (event) => {
     activeTagSuggestionIndex =
       (activeTagSuggestionIndex - 1 + visibleTagSuggestions.length) % visibleTagSuggestions.length;
     renderTagSuggestions();
+    scrollActiveTagSuggestionIntoView();
     return;
   }
 
