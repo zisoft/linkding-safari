@@ -11,7 +11,7 @@ body {
 
 main {
   max-width: 620px;
-  margin: 24px auto;
+  margin: 12px auto;
   padding: 0 16px;
 }
 
@@ -57,10 +57,17 @@ button {
   width: fit-content;
   border: none;
   border-radius: 6px;
+  font-size: 14px;
   padding: 8px 14px;
   background: #0a84ff;
   color: #fff;
   cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #status {

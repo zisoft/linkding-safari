@@ -13,6 +13,7 @@ const urlInput = document.getElementById("url");
 const descriptionInput = document.getElementById("description");
 const notesInput = document.getElementById("notes");
 const unreadInput = document.getElementById("unread");
+const sharedInput = document.getElementById("shared");
 const tagsInput = document.getElementById("tags");
 const tagSuggestionsEl = document.getElementById("tagSuggestions");
 
@@ -88,6 +89,7 @@ function getPayloadFromForm() {
     description: descriptionInput.value.trim(),
     notes: notesInput.value.trim(),
     unread: unreadInput.checked,
+    shared: sharedInput.checked,
     tag_names: parseTags(tagsInput.value),
   };
 }
@@ -132,6 +134,10 @@ function applyBookmarkToForm(bookmark) {
 
   if (typeof bookmark.unread === "boolean") {
     unreadInput.checked = bookmark.unread;
+  }
+
+  if (typeof bookmark.shared === "boolean") {
+    sharedInput.checked = bookmark.shared;
   }
 
   const tags = extractBookmarkTags(bookmark);
@@ -496,6 +502,11 @@ notesInput.addEventListener("input", () => {
 unreadInput.addEventListener("change", () => {
   pendingDeleteConfirmation = false;
 });
+
+sharedInput.addEventListener("change", () => {
+  pendingDeleteConfirmation = false;
+});
+
 tagsInput.addEventListener("input", () => {
   renderTagSuggestions();
 });
@@ -585,7 +596,7 @@ function focusPrimaryInput() {
 
 async function initialize() {
   resetDuplicateState();
-  const stored = await storageGet(["baseUrl", "apiToken", "unreadDefault"]);
+  const stored = await storageGet(["baseUrl", "apiToken", "tags", "unreadDefault", "sharedDefault"]);
 
   if (!stored.baseUrl || !stored.apiToken) {
     setStatus("Please set Linkding URL and API token in Settings.", "error");
@@ -595,7 +606,9 @@ async function initialize() {
     const tab = await getActiveTab();
     titleInput.value = tab.title || "";
     urlInput.value = tab.url || "";
+	tagsInput.value = stored.tags || "";
 	unreadInput.checked = stored.unreadDefault;
+	sharedInput.checked = stored.sharedDefault;
 
     const pageDescription = await getPageDescription(tab.id);
     if (pageDescription && !descriptionInput.value.trim()) {
@@ -621,7 +634,11 @@ async function initialize() {
 }
 
 openSettingsButton.addEventListener("click", () => {
-  window.open("options.html", "_blank", "noreferrer");
+  const width = 500;
+  const height = 450;
+  const x = screen.width/2 - width/2;
+  const y = screen.height/2 - height/2;
+  window.open("options.html", "optionsWindow", `popup,noreferrer,left=${x},top=${y},width=${width},height=${height}`);
 });
 
 openInstanceButton.addEventListener("click", async () => {

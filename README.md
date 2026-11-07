@@ -10,6 +10,7 @@ A Safari Web Extension to quickly save the current page to your [Linkding](https
   - description (auto-filled from page meta tags)
   - notes
   - mark as unread
+  - shared
   - tags
 - Automatic description extraction from the active page (fallback order):
   - `meta[name="description"]`
@@ -29,6 +30,9 @@ A Safari Web Extension to quickly save the current page to your [Linkding](https
 - Options page for:
   - Linkding base URL
   - API token
+  - default tags
+  - unread
+  - shared
   - optional auto-close on successful save
 - Keyboard shortcut to save current page directly:
   - macOS: `⌘ + ⇧ + L`
